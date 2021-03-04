@@ -7,7 +7,7 @@ Summary:	Backport of functools.singledispatch from Python 3.4 to Python 2.6-3.3
 Summary(pl.UTF-8):	Backport functools.singledispatch z Pythona 3.4 do Pythona 2.6-3.3
 Name:		python-singledispatch
 Version:	3.4.0.3
-Release:	2
+Release:	3
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.python.org/simple/singledispatch
