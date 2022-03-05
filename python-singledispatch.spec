@@ -1,19 +1,19 @@
 #
 # Conditional build:
 %bcond_without	python2 # CPython 2.x module
-%bcond_with	python3 # CPython 3.x module [functionality already in 3.4+]
+%bcond_with	python3 # CPython 3.x module [functionality already in 3.7+]
 
 Summary:	Backport of functools.singledispatch from Python 3.4 to Python 2.6-3.3
 Summary(pl.UTF-8):	Backport functools.singledispatch z Pythona 3.4 do Pythona 2.6-3.3
 Name:		python-singledispatch
-Version:	3.4.0.3
-Release:	3
+Version:	3.7.0
+Release:	1
 License:	MIT
 Group:		Libraries/Python
-#Source0Download: https://pypi.python.org/simple/singledispatch
-Source0:	https://pypi.python.org/packages/source/s/singledispatch/singledispatch-%{version}.tar.gz
-# Source0-md5:	af2fc6a3d6cc5a02d0bf54d909785fcb
-URL:		https://pypi.python.org/pypi/singledispatch
+#Source0Download: https://pypi.org/simple/singledispatch
+Source0:	https://files.pythonhosted.org/packages/source/s/singledispatch/singledispatch-%{version}.tar.gz
+# Source0-md5:	018c4545311628b7ea6279f71ae7d004
+URL:		https://pypi.org/project/singledispatch/
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
 %if %{with python2}
@@ -22,7 +22,7 @@ BuildRequires:	python-setuptools
 %endif
 %if %{with python3}
 BuildRequires:	python3-modules >= 1:3.2
-BuildRequires:	python3-modules < 1:3.4
+BuildRequires:	python3-modules < 1:3.7
 BuildRequires:	python3-setuptools
 %endif
 Requires:	python-modules >= 1:2.6
@@ -51,7 +51,7 @@ Summary:	Backport of functools.singledispatch from Python 3.4 to Python 2.6-3.3
 Summary(pl.UTF-8):	Backport functools.singledispatch z Pythona 3.4 do Pythona 2.6-3.3
 Group:		Libraries/Python
 Requires:	python3-modules >= 1:3.2
-Requires:	python3-modules < 1:3.4
+Requires:	python3-modules < 1:3.7
 Requires:	python3-six
 
 %description -n python3-singledispatch
@@ -101,19 +101,15 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python2}
 %files
 %defattr(644,root,root,755)
-%doc README.rst
-%{py_sitescriptdir}/singledispatch.py[co]
-%{py_sitescriptdir}/singledispatch_helpers.py[co]
+%doc CHANGES.rst README.rst
+%{py_sitescriptdir}/singledispatch
 %{py_sitescriptdir}/singledispatch-%{version}-py*.egg-info
 %endif
 
 %if %{with python3}
 %files -n python3-singledispatch
 %defattr(644,root,root,755)
-%doc README.rst
-%{py3_sitescriptdir}/singledispatch.py
-%{py3_sitescriptdir}/singledispatch_helpers.py
-%{py3_sitescriptdir}/__pycache__/singledispatch.cpython-*.py[co]
-%{py3_sitescriptdir}/__pycache__/singledispatch_helpers.cpython-*.py[co]
+%doc CHANGES.rst README.rst
+%{py3_sitescriptdir}/singledispatch
 %{py3_sitescriptdir}/singledispatch-%{version}-py*.egg-info
 %endif
